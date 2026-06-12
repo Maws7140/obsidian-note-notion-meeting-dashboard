@@ -1,0 +1,168 @@
+/* ── Meeting Notes / Audio Manager (minimal sidebar) ───── */
+
+.audio-mgr {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0 4px;
+  font-family: var(--font-interface);
+}
+
+.am-body {
+  padding: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+.am-bucket + .am-bucket {
+  margin-top: 4px;
+}
+
+.am-bucket-label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 12px 8px 6px;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.am-bucket-arrow {
+  font-size: 0.6rem;
+  width: 10px;
+  display: inline-block;
+  color: var(--text-faint);
+  transition: transform 0.2s;
+}
+
+.am-bucket.is-collapsed .am-bucket-arrow {
+  transform: rotate(-90deg);
+}
+
+.am-bucket-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.am-item {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+  min-height: 28px;
+  position: relative;
+  overflow: hidden;
+}
+
+.am-item:hover {
+  background: var(--background-modifier-hover);
+}
+
+.am-item-icon {
+  flex-shrink: 0;
+  color: var(--text-faint);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+}
+
+.am-item-icon svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.am-item-title {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-height: 1.2;
+  min-width: 0;
+}
+
+.am-item-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.am-item-actions {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  align-items: center;
+  gap: 1px;
+  padding: 0 4px 0 12px;
+  background: linear-gradient(90deg, transparent, var(--background-modifier-hover) 25%);
+  z-index: 2;
+  transition: opacity 0.15s ease;
+}
+
+.am-item:hover .am-item-actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.am-icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 5px;
+  border: none;
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.12s, color 0.12s;
+}
+
+.am-icon-btn:hover {
+  background: var(--background-modifier-hover);
+  color: var(--text-normal);
+}
+
+.am-icon-btn svg {
+  width: 14px;
+  height: 14px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.am-icon-btn.am-delete:hover {
+  color: var(--text-error);
+}
+
+.am-empty {
+  padding: 12px 8px;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}
