@@ -1,0 +1,165 @@
+/* ── Upcoming Events (minimal sidebar) ─────────────────── */
+
+.upcoming-events {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: visible;
+  padding: 0 4px;
+}
+
+.ue-header {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  padding: 12px 8px 6px;
+  border: none;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  align-items: center;
+}
+
+.ue-header::-webkit-details-marker {
+  display: none;
+}
+
+.ue-header::before {
+  content: '▼';
+  font-size: 0.6rem;
+  margin-right: 6px;
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+details:not([open]) .ue-header::before {
+  transform: rotate(-90deg);
+}
+
+.ue-body {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0;
+  max-height: none;
+  overflow: visible;
+}
+
+.ue-event {
+  display: grid;
+  grid-template-columns: 12px 1fr auto;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.1s ease;
+}
+
+.ue-event:hover {
+  background: var(--background-modifier-hover);
+}
+
+.ue-icon {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  background: #c4a8e8;
+  flex-shrink: 0;
+}
+
+.ue-event[data-color="pink"]   .ue-icon { background: #e8836b; }
+.ue-event[data-color="red"]    .ue-icon { background: #e74c3c; }
+.ue-event[data-color="orange"] .ue-icon { background: #e8a94b; }
+.ue-event[data-color="blue"]   .ue-icon { background: #5b9bd5; }
+.ue-event[data-color="green"]  .ue-icon { background: #41a452; }
+.ue-event[data-color="purple"] .ue-icon { background: #c4a8e8; }
+
+.ue-event-title {
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: var(--text-normal);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  line-height: 1.2;
+}
+
+.ue-event-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-left: 2px;
+}
+
+.ue-empty {
+  padding: 12px 8px;
+  color: var(--text-faint);
+  font-size: 0.85rem;
+}
+
+/* ── Task Creation Modal (unchanged) ───────────────────── */
+
+.nt-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.nt-modal {
+  background: var(--background-primary);
+  border-radius: 12px;
+  padding: 24px;
+  width: 380px;
+  max-width: 90vw;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.nt-modal-title { font-weight: 700; font-size: 1.1rem; margin-bottom: 16px; }
+.nt-modal-field { display: block; margin-bottom: 12px; }
+.nt-modal-label { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 4px; }
+
+.nt-modal-input,
+.nt-modal-select {
+  width: 100%;
+  padding: 6px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  box-sizing: border-box;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.nt-modal-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+.nt-modal-actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+
+.nt-modal-btn {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: 1px solid var(--background-modifier-border);
+  background: var(--background-secondary);
+  color: var(--text-normal);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.nt-modal-btn-primary {
+  padding: 6px 16px;
+  border-radius: 6px;
+  border: none;
+  background: var(--interactive-accent);
+  color: var(--text-on-accent);
+  cursor: pointer;
+  font-weight: 600;
+  font-family: inherit;
+}
